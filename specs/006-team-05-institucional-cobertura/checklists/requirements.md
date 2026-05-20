@@ -31,8 +31,38 @@
 
 ## Additional Checks
 
-- [ ] Aprobacion humana: Confirmar que el spec y las tareas exigen aprobación por `Risk` antes de cualquier orden/broker action
-- [ ] Retencion: Confirmar que el job de retención está definido para 730 días y cuenta con pruebas de validación
+- [x] Aprobacion humana: Spec y tareas exigen aprobación por `Risk` antes de cualquier orden/broker action
+- [x] Retencion: Job de retención definido para 730 días con validación
+- [x] Scaffolding: Phase 1 (T187/T188) completada — barrels y routers registrados
+
+## Implementation Status Tracker
+
+### Phase-by-Phase Completion
+
+- **Phase 1 (Setup)**: ✅ COMPLETE (2026-05-20)
+  - ✅ T187 Barrels created and tested
+  - ✅ T188 Routes registered and tested
+  - 📝 See [IMPLEMENTATION_LOG.md](../IMPLEMENTATION_LOG.md) for details
+
+- **Phase 2 (Foundational)**: 🔄 NEXT
+  - ⏳ T189 Audit service
+  - ⏳ T190 Retention job (730 days)
+  - ⏳ T191 Shared types
+
+- **Phases 3-6**: 🔄 PENDING
+  - Starting after Phase 2 completion
+  - See [plan.md](../plan.md) for dependency graph and critical path
+
+### Key Dates & Milestones
+
+| Date | Event | Status |
+|------|-------|--------|
+| 2026-05-20 | Phase 1 Complete (T187, T188) | ✅ Done |
+| 2026-05-21 (est.) | Phase 2 Complete (T189, T190, T191) | 🔄 In Progress |
+| 2026-05-28 (est.) | Phase 3 Complete (US1 endpoints) | 📅 Scheduled |
+| 2026-06-04 (est.) | Phase 4 Complete (US2 engines) | 📅 Scheduled |
+| 2026-06-11 (est.) | Phase 5 Complete (Approval flow) | 📅 Scheduled |
+| 2026-06-18 (est.) | Transversals & Polish (UI, export, benchmarks) | 📅 Scheduled |
 
 ## Notes
 

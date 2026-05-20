@@ -24,8 +24,10 @@ description: "Task list for TEAM-05 institutional and coverage slice"
 
 **Purpose**: Preparacion de estructura base para modulo institucional y cobertura
 
-- [ ] T187 [P] Crear barrels/exports base en backend/src/modules/institutional/index.ts y backend/src/modules/strategies/coverage/index.ts
-- [ ] T188 Registrar rutas base institucionales y de cobertura en backend/src/routes/index.ts
+- [x] T187 [P] Crear barrels/exports base en backend/src/modules/institutional/index.ts y backend/src/modules/strategies/coverage/index.ts
+- [x] T188 Registrar rutas base institucionales y de cobertura en backend/src/routes/index.ts
+
+**Status**: ✅ COMPLETE (2026-05-20) — Barrels created; routers registered at `/api/institutional` and `/api/strategies/coverage`; placeholder endpoints added; smoke tests validate structure.
 
 ---
 

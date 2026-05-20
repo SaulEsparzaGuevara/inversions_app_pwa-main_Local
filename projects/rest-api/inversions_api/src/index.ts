@@ -20,6 +20,8 @@ import { instrumentsCatalogRouter } from "./routes/catalogs/instruments";
 import { brokerCapabilitiesRouter } from "./routes/brokers/capabilities";
 import { marketDataOhlcRouter } from "./routes/market-data/ohlc";
 import { indicatorsCatalogRouter } from "./routes/indicators/catalog";
+import { institutionalRouter } from "./routes/institutional";
+import { coverageRouter } from "./routes/strategies/coverage";
 
 const envValidation = validateEnvironment();
 if (!envValidation.isValid) {
@@ -55,6 +57,8 @@ app.use("/api/catalogs", instrumentsCatalogRouter);
 app.use("/api/brokers", brokerCapabilitiesRouter);
 app.use("/api/market-data", marketDataOhlcRouter);
 app.use("/api/indicators", indicatorsCatalogRouter);
+app.use("/api/institutional", institutionalRouter);
+app.use("/api/strategies/coverage", coverageRouter);
 
 app.get("/health", (_req, res) => {
   res.status(200).json({ status: "ok" });

@@ -131,6 +131,78 @@ La implementacion sigue el backlog canonico ya creado, sin reescribirlo desde ce
 - Automatismos: se ha reforzado la regla de que ninguna acción sensitive (stop-loss/close) se ejecuta automáticamente; debe pasar por el flujo de aprobación `Risk` antes de enrutarse a brokers.
 - Nuevas tareas añadidas al backlog: motor `iron condor`, UI filtrable, panel de provenance, enforcement RBAC para aprobaciones, export PDF/CSV y benchmark/perf para `SC-001`/`SC-002`.
 
+## Progreso de Implementación (Actual)
+
+**Fecha de Inicio**: 2026-05-20
+
+### Completed Phases
+
+#### Phase 1: Setup ✅ COMPLETE
+- **T187**: Barrels created for institutional and coverage modules
+- **T188**: Base routes registered at `/api/institutional` and `/api/strategies/coverage`
+- **Tests**: Smoke tests validate module structure and route registration
+- **Branch**: `feat/006/setup-foundation`
+- **Status**: Ready for Phase 2 (Foundational)
+
+### Pending Phases
+
+#### Phase 2: Foundational (NEXT)
+- T189: Audit service for institutional/coverage events
+- T190: Retention job (730 days)
+- T191: Shared types (institutional, coverage)
+- **Estimated**: After T187/T188 completion; no blockers
+
+#### Phase 3: User Story 1 - Institutional Analysis (P1)
+- T106-T112: Institutional engines and endpoints
+- T184, T186: Unit and integration tests
+- **Blocked By**: Phase 2 (types/audit)
+- **Blocks**: Phase 4 (institutional data consumed by backtests)
+
+#### Phase 4: User Story 2 - Coverage Strategies (P2)
+- T113-T120, T192: Coverage engines, simulators, comparators
+- T198-T199: Iron condor engine
+- T185, T193: Unit and integration tests
+- **Blocked By**: Phase 3 (institutional context), Phase 2 (types)
+- **Blocks**: Phase 5 (proposals creation)
+
+#### Phase 5: Approval Flow & RBAC (P2)
+- T121, T194, T196, T202: Approval service, APIs, UI, RBAC enforcement
+- T195: Integration tests for approval workflow
+- **Blocked By**: Phase 4 (coverage proposals exist)
+- **Blocks**: Release (no execution without approval)
+
+#### Transversals & Polish
+- T200: Institutional UI filters
+- T201: Provenance panel
+- T203: Export PDF/CSV
+- T204: Performance benchmarks
+- T173: Standard transversal hardening
+- **Blocked By**: End of Phase 4
+- **Status**: Can start in parallel with Phase 5
+
+### Implementation Statistics
+
+| Phase | Tasks | Complete | Pending | % Done |
+|-------|-------|----------|---------|--------|
+| Phase 1 (Setup) | 2 | 2 | 0 | 100% ✅ |
+| Phase 2 (Foundation) | 3 | 0 | 3 | 0% |
+| Phase 3 (US1) | 8 | 0 | 8 | 0% |
+| Phase 4 (US2) | 11 | 0 | 11 | 0% |
+| Phase 5 (Approval) | 5 | 0 | 5 | 0% |
+| Transversals | 8 | 0 | 8 | 0% |
+| **TOTAL** | **37** | **2** | **35** | **5.4%** |
+
+### Critical Path to Completion
+
+1. ✅ Phase 1: Setup (DONE)
+2. 🔄 Phase 2: Foundational (NEXT) — 3 tasks, est. 2-3 days
+3. 🔄 Phase 3: Institutional (PARALLEL after Phase 2) — 8 tasks, est. 5-7 days
+4. 🔄 Phase 4: Coverage (PARALLEL/AFTER Phase 3) — 11 tasks, est. 7-10 days
+5. 🔄 Phase 5: Approval (AFTER Phase 4) — 5 tasks, est. 3-5 days
+6. 🔄 Transversals/Polish (PARALLEL with Phases 3-5) — 8 tasks, est. 3-5 days
+
+**Estimated Total Duration**: 20-30 working days (depending on team size and parallelization)
+
 ### Alineacion con el backlog existente
 
 - Se preservan los bloques de setup, fundacion y cobertura ya definidos en `tasks.md` como unidades de trabajo.
